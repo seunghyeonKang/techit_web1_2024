@@ -1,6 +1,6 @@
 import "./Exam.css";
 
-function Exam02() {
+function List() {
   let list = [
     { no: 1, area: "대전", visited: false },
     { no: 2, area: "부산", visited: true },
@@ -22,4 +22,4 @@ function Exam02() {
   return <ul className="list-area">{areas}</ul>;
 }
 
-export default Exam02;
+export default List;

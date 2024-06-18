@@ -1,4 +1,4 @@
-function Exam() {
+function Date() {
   const today = new Date();
   //   console.log(today);
   const year = today.getFullYear();
@@ -21,4 +21,4 @@ function Exam() {
   );
 }
 
-export default Exam;
+export default Date;
