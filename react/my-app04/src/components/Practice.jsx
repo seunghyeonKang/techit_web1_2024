@@ -1,30 +1,31 @@
 import React from "react";
+import "./Practice.css";
 
 export function Practice() {
   return (
-    <>
+    <div className="components">
       <ItemWrap
-        itemInfo="버그를 Java라 버그잡는 개리씨 키링"
+        itemTitle="버그를 Java라 버그잡는 개리씨 키링"
         itemPrice="12500"
       />
       <ItemWrap />
-    </>
+    </div>
   );
 }
 
-function ItemWrap({ itemInfo, itemPrice }) {
+function ItemWrap({ itemTitle, itemPrice }) {
   return (
-    <div>
-      <div>
+    <div className="component-wrap">
+      <div className="img-wrap item">
         <img src="./img/img01.png" alt="img" />
       </div>
-      <div>
-        <p>{itemInfo}</p>
-        <div>
+      <div className="item-info">
+        <p>{itemTitle}</p>
+        <div className="img-wrap icon">
           <img src="" alt="" />
         </div>
       </div>
-      <p>
+      <p className="item-info">
         {itemPrice}
         <span>원</span>
       </p>
