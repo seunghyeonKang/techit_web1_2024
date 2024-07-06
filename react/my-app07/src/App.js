@@ -1,10 +1,12 @@
 import React, { Fragment } from "react";
 import NavBar from "./NavBar";
+import { PetForm } from "./PetForm";
 
 function App() {
   return (
     <div>
-      <NavBar />
+      {/* <NavBar /> */}
+      <PetForm />
     </div>
   );
 }
