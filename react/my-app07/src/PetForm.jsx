@@ -1,22 +1,81 @@
+import { useState } from "react";
+
 export function PetForm() {
-  const pets = [
+  const [name, setName] = useState("");
+  const [species, setSpecies] = useState("");
+  const [age, setAge] = useState("");
+
+  const [pets, setPets] = useState([
     { name: "벨라", species: "고양이", age: "5", id: "111" },
     { name: "루시", species: "강아지", age: "3", id: "112" },
     { name: "데이지", species: "토끼", age: "2", id: "113" },
     { name: "몰리", species: "고양이", age: "6", id: "114" },
     { name: "매기", species: "햄스터", age: "1", id: "115" },
-  ];
+  ]);
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    setPets((prev) => {
+      return prev.concat({
+        name: name,
+        species: species,
+        age: age,
+        id: Date.now(),
+      });
+    });
+    setName("");
+    setSpecies("");
+    setAge("");
+  }
 
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit}>
         <fieldset>
           <legend>새로운 애완동물을 추가하세요!</legend>
+          <label>
+            이름
+            <input
+              type="text"
+              placeholder="이름"
+              onChange={(event) => {
+                return setName(event.target.value.trim());
+              }}
+            />
+          </label>
+          <label>
+            종
+            <input
+              type="text"
+              placeholder="종"
+              onChange={(event) => {
+                return setSpecies(event.target.value.trim());
+              }}
+            />
+          </label>
+          <label>
+            나이
+            <input
+              type="text"
+              placeholder="나이"
+              onChange={(event) => {
+                return setAge(event.target.value.trim());
+              }}
+            />
+          </label>
+          <button>추가하기</button>
         </fieldset>
       </form>
       <ul>
         {pets.map((pet) => {
-          return <Pet name={pet.name} species={pet.species} age={pet.age} key={pet.id} />;
+          return (
+            <Pet
+              name={pet.name}
+              species={pet.species}
+              age={pet.age}
+              key={pet.id}
+            />
+          );
         })}
       </ul>
     </>
